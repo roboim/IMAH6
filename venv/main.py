@@ -3,6 +3,7 @@ import time
 import numpy as np
 from roboticstoolbox import DHRobot, RevoluteDH
 from spatialmath import SE3
+import matplotlib.pyplot as plt
 
 
 def send_data_to_robot():
@@ -49,7 +50,9 @@ def send_data_to_robot():
     print("Матрица однородного преобразования T:\n", T)
 
     # Визуализация ()
-
+    fig = robot.plot(J_angles_in_rad, block=False)
+    plt.ioff()  # Отключаем интерактивный режим
+    plt.show()
 
     # --- 6. Преобразование углов и отправка в контроллер ---
     if print_flag == 1:
